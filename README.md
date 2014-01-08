@@ -22,7 +22,7 @@ touch.on('#rotation .target', 'touchstart', function(ev){ ev.startRotate();
 
 ##### v0.2.10 更新日期： 2013-01-08
 
-- 支持require方式
+- 支持require.js shim方式异步加载
 
 ##### v0.2.9 更新日期： 2013-12-04
 
