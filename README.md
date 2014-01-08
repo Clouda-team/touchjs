@@ -1,7 +1,7 @@
-Touchjs getsture library
+Touchjs Getsture Library
 =======
 
-### ATTENTION:
+### NOTE:
 
 与0.2.6及之前的touch.js兼容问题
 
