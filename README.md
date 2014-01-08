@@ -1,7 +1,14 @@
 Touchjs Getsture Library
 =======
 
-### NOTE:
+### API
+
+[API Docs](http://cloudajs.org/docs/step4_API_Documentation#h2_7)
+
+### EXAMPLES
+[Examples](http://code.baidu.com/examples.html)
+
+### NOTE
 
 与0.2.6及之前的touch.js兼容问题
 
@@ -18,7 +25,7 @@ touch.on('#rotation .target', 'touchstart', function(ev){ ev.startRotate();
 });
 ```
 
-### Release note:
+### Release note
 
 ##### v0.2.10 更新日期： 2013-01-08
 
