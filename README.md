@@ -27,6 +27,11 @@ touch.on('#rotation .target', 'touchstart', function(ev){ ev.startRotate();
 
 ### Release note
 
+##### v0.2.11 更新日期： 2013-01-09
+
+- 增加代理/绑定方法对`return false`的支持, 其效果等同于同时执行`e.stopPropagation`和`e.preventDefault`方法.
+- 修复代理元素为`document`时出现的bug.
+
 ##### v0.2.10 更新日期： 2013-01-08
 
 - 支持require.js shim方式异步加载
@@ -80,3 +85,8 @@ touch.on('#rotation .target', 'touchstart', function(ev){ ev.startRotate();
 - 增加了采样频率：interval
 
 - 更新on传递options（可选）参数的方式
+
+### 问题反馈
+
+如有疑问, 可以直接提issue, 我们会及时为您解答.
+欢迎就`touch.js`提出宝贵的批评和建议.
