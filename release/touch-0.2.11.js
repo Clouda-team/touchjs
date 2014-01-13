@@ -1,7 +1,14 @@
-var touch = touch || {};
-
-(function(doc, exports) {
+(function (root, factory) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD. Register as an anonymous module.
+		define([], factory);
+	} else {
+		// Browser globals
+		root.touch = factory();
+	}
+}(this, function () {
 	'use strict';
+	var doc = document;
 	var os = (function() {
 		var navigator = window.navigator,
 		userAgent = navigator.userAgent,
@@ -1012,13 +1019,12 @@ var touch = touch || {};
 
 	init();
 
-	exports.on = _on;
-	exports.off = _off;
-	exports.bind = _on;
-	exports.unbind = _off;
-	exports.live = _on;
-	exports.die = _off;
+	var exports = {};
+
+	exports.on = exports.bind = exports.live = _on;
+	exports.off = exports.unbind = exports.die = _off;
 	exports.config = config;
 	exports.trigger = _dispatch;
 
-})(document, touch);
+	return exports;
+}));
