@@ -1,0 +1,30 @@
+{
+  "name": "touch",
+  "version": "0.2.12",
+  "description": "clouda event and gesture lib touch.js",
+  "main": "index.js",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-concat": "~0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/einsteinhx/touchjs.git"
+  },
+  "keywords": [
+    "baidu",
+    "clouda",
+    "touch",
+    "touch.js",
+    "gesture"
+  ],
+  "author": "clouda team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/einsteinhx/touchjs/issues"
+  }
+}
