@@ -42,8 +42,8 @@ var smrEventList = {
 	SWIPE_DOWN: 'swipedown',
 	SWIPE: 'swipe',
 	DRAG: 'drag',
-	DRAGSTART : 'dragstart',
-	DRAGEND : 'dragend',
+	DRAGSTART: 'dragstart',
+	DRAGEND: 'dragend',
 	HOLD: 'hold',
 	TAP: 'tap',
 	DOUBLE_TAP: 'doubletap'

@@ -5,8 +5,8 @@
 			touchEvents = 'touchstart touchmove touchend touchcancel';
 		var bindingEvents = utils.hasTouch ? touchEvents : mouseEvents;
 
-		bindingEvents.split(" ").forEach(function(evt){
-			document.addEventListener(evt, handlerOriginEvent, false);	
+		bindingEvents.split(" ").forEach(function(evt) {
+			document.addEventListener(evt, handlerOriginEvent, false);
 		});
 	}
 

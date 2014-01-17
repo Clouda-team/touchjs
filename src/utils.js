@@ -5,13 +5,13 @@ utils.PCevts = {
     'touchmove': 'mousemove',
     'touchend': 'mouseup',
     'touchcancel': 'mouseout'
-}
+};
 
 utils.hasTouch = ('ontouchstart' in window);
 
 utils.getType = function(obj) {
     return Object.prototype.toString.call(obj).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
-}
+};
 
 utils.getSelector = function(el) {
     if (el.id) {
@@ -25,19 +25,19 @@ utils.getSelector = function(el) {
     } else {
         return el.tagName.toLowerCase();
     }
-}
+};
 
 utils.matchSelector = function(target, selector) {
     return target.webkitMatchesSelector(selector);
-}
+};
 
 utils.getEventListeners = function(el) {
     return el.listeners;
-}
+};
 
 utils.getPCevts = function(evt) {
     return this.PCevts[evt] || evt;
-}
+};
 
 utils.forceReflow = function() {
     var tempDivID = "reflowDivBlock";
@@ -51,11 +51,11 @@ utils.forceReflow = function() {
     var nextSibling = domTreeOpDiv.nextSibling;
     parentNode.removeChild(domTreeOpDiv);
     parentNode.insertBefore(domTreeOpDiv, nextSibling);
-}
+};
 
 utils.simpleClone = function(obj) {
     return JSON.parse(JSON.stringify(obj));
-}
+};
 
 utils.getPosOfEvent = function(ev) {
     if (this.hasTouch) {
@@ -76,17 +76,17 @@ utils.getPosOfEvent = function(ev) {
             y: ev.pageY
         }];
     }
-}
+};
 
 utils.getDistance = function(pos1, pos2) {
     var x = pos2.x - pos1.x,
-    y = pos2.y - pos1.y;
+        y = pos2.y - pos1.y;
     return Math.sqrt((x * x) + (y * y));
-}
+};
 
 utils.getFingers = function(ev) {
-    return ev.touches ? ev.touches.length: 1;
-}
+    return ev.touches ? ev.touches.length : 1;
+};
 
 utils.calScale = function(pstart, pmove) {
     if (pstart.length >= 2 && pmove.length >= 2) {
@@ -96,16 +96,16 @@ utils.calScale = function(pstart, pmove) {
         return disEnd / disStart;
     }
     return 1;
-}
+};
 
 utils.getAngle = function(p1, p2) {
     return Math.atan2(p2.y - p1.y, p2.x - p1.x) * 180 / Math.PI;
-}
+};
 
-utils.getAngle180 = function (p1, p2) {
+utils.getAngle180 = function(p1, p2) {
     var agl = Math.atan((p2.y - p1.y) * -1 / (p2.x - p1.x)) * (180 / Math.PI);
     return (agl < 0 ? (agl + 180) : agl);
-}
+};
 
 utils.getDirectionFromAngle = function(agl) {
     var directions = {
@@ -118,11 +118,11 @@ utils.getDirectionFromAngle = function(agl) {
         if (directions[key]) return key;
     }
     return null;
-}
+};
 
 utils.getXYByElement = function(el) {
     var left = 0,
-    top = 0;
+        top = 0;
 
     while (el.offsetParent) {
         left += el.offsetLeft;
@@ -133,7 +133,7 @@ utils.getXYByElement = function(el) {
         left: left,
         top: top
     };
-}
+};
 
 utils.reset = function() {
     startEvent = moveEvent = endEvent = null;
@@ -141,22 +141,23 @@ utils.reset = function() {
     startDrag = false;
     pos = {};
     __rotation_single_finger = false;
-}
+};
+
 utils.isTouchMove = function(ev) {
     return (ev.type === 'touchmove' || ev.type === 'mousemove');
-}
+};
 
 utils.isTouchEnd = function(ev) {
     return (ev.type === 'touchend' || ev.type === 'mouseup' || ev.type === 'touchcancel');
-}
+};
 
 utils.env = (function() {
     var os = {}, ua = navigator.userAgent,
-    android = ua.match(/(Android)[\s\/]+([\d\.]+)/),
-    ios = ua.match(/(iPad|iPhone|iPod)\s+OS\s([\d_\.]+)/),
-    wp = ua.match(/(Windows\s+Phone)\s([\d\.]+)/),
-    isWebkit = /WebKit\/[\d.]+/i.test(ua),
-    isSafari = ios ? (navigator.standalone ? isWebkit: (/Safari/i.test(ua) && !/CriOS/i.test(ua) && !/MQQBrowser/i.test(ua))) : false;
+        android = ua.match(/(Android)[\s\/]+([\d\.]+)/),
+        ios = ua.match(/(iPad|iPhone|iPod)\s+OS\s([\d_\.]+)/),
+        wp = ua.match(/(Windows\s+Phone)\s([\d\.]+)/),
+        isWebkit = /WebKit\/[\d.]+/i.test(ua),
+        isSafari = ios ? (navigator.standalone ? isWebkit : (/Safari/i.test(ua) && !/CriOS/i.test(ua) && !/MQQBrowser/i.test(ua))) : false;
     if (android) {
         os.android = true;
         os.version = android[2];

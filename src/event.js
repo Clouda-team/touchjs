@@ -6,10 +6,10 @@ var engine = {
 
         detail = detail || {};
         var e, opt = {
-            bubbles: true,
-            cancelable: true,
-            detail: detail
-        };
+                bubbles: true,
+                cancelable: true,
+                detail: detail
+            };
 
         try {
             if (typeof CustomEvent !== 'undefined') {
@@ -24,7 +24,7 @@ var engine = {
                     el.dispatchEvent(e);
                 }
             }
-        } catch(e) {
+        } catch (ex) {
             console.warn("Touch.js is not supported by environment.");
         }
     },
@@ -45,9 +45,9 @@ var engine = {
                     e[p] = e.detail[p];
                 }
             }
-            e.startRotate = function(){
-                 __rotation_single_finger = true;
-            }
+            e.startRotate = function() {
+                __rotation_single_finger = true;
+            };
             var returnValue = handler.call(e.target, e);
             if (typeof returnValue !== "undefined" && !returnValue) {
                 e.stopPropagation();
@@ -93,9 +93,9 @@ var engine = {
                     e[p] = e.detail[p];
                 }
             }
-            e.startRotate = function(){
-                 __rotation_single_finger = true;
-            }
+            e.startRotate = function() {
+                __rotation_single_finger = true;
+            };
             var integrateSelector = utils.getSelector(el) + " " + sel;
             var match = utils.matchSelector(e.target, integrateSelector);
             var ischild = utils.matchSelector(e.target, integrateSelector + " " + e.target.nodeName);
@@ -159,4 +159,4 @@ var engine = {
             }
         }
     }
-}
+};
