@@ -3,7 +3,7 @@ var config = {
 	doubleTap: true,
 	tapMaxDistance: 10,
 	hold: true,
-	tapTime: 150,
+	tapTime: 200,
 	holdTime: 650,
 	maxDoubleTapInterval: 300,
 	swipe: true,
