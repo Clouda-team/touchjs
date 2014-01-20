@@ -1,10 +1,10 @@
 'use strict';
 (function(root, factory) {
-	if (typeof define === 'function' && (define.amd || define.cmd)) {
-		define(factory); //Register as a module.
-	} else {
-		root.touch = factory();
-	}
+    if (typeof define === 'function' && (define.amd || define.cmd)) {
+        define(factory); //Register as a module.
+    } else {
+        root.touch = factory();
+    }
 }(this, function() {
 
 var utils = {};
@@ -362,54 +362,54 @@ var engine = {
 };
 
 var config = {
-	tap: true,
-	doubleTap: true,
-	tapMaxDistance: 10,
-	hold: true,
-	tapTime: 200,
-	holdTime: 650,
-	maxDoubleTapInterval: 300,
-	swipe: true,
-	swipeTime: 300,
-	swipeMinDistance: 18,
-	swipeFactor: 5,
-	drag: true,
-	pinch: true,
-	minScaleRate: 0,
-	minRotationAngle: 0
+    tap: true,
+    doubleTap: true,
+    tapMaxDistance: 10,
+    hold: true,
+    tapTime: 200,
+    holdTime: 650,
+    maxDoubleTapInterval: 300,
+    swipe: true,
+    swipeTime: 300,
+    swipeMinDistance: 18,
+    swipeFactor: 5,
+    drag: true,
+    pinch: true,
+    minScaleRate: 0,
+    minRotationAngle: 0
 };
 
 var smrEventList = {
-	TOUCH_START: 'touchstart',
-	TOUCH_MOVE: 'touchmove',
-	TOUCH_END: 'touchend',
-	TOUCH_CANCEL: 'touchcancel',
-	MOUSE_DOWN: 'mousedown',
-	MOUSE_MOVE: 'mousemove',
-	MOUSE_UP: 'mouseup',
-	CLICK: 'click',
-	PINCH_START: 'pinchstart',
-	PINCH_END: 'pinchend',
-	PINCH: 'pinch',
-	PINCH_IN: 'pinchin',
-	PINCH_OUT: 'pinchout',
-	ROTATION_LEFT: 'rotateleft',
-	ROTATION_RIGHT: 'rotateright',
-	ROTATION: 'rotate',
-	SWIPE_START: 'swipestart',
-	SWIPING: 'swiping',
-	SWIPE_END: 'swipeend',
-	SWIPE_LEFT: 'swipeleft',
-	SWIPE_RIGHT: 'swiperight',
-	SWIPE_UP: 'swipeup',
-	SWIPE_DOWN: 'swipedown',
-	SWIPE: 'swipe',
-	DRAG: 'drag',
-	DRAGSTART: 'dragstart',
-	DRAGEND: 'dragend',
-	HOLD: 'hold',
-	TAP: 'tap',
-	DOUBLE_TAP: 'doubletap'
+    TOUCH_START: 'touchstart',
+    TOUCH_MOVE: 'touchmove',
+    TOUCH_END: 'touchend',
+    TOUCH_CANCEL: 'touchcancel',
+    MOUSE_DOWN: 'mousedown',
+    MOUSE_MOVE: 'mousemove',
+    MOUSE_UP: 'mouseup',
+    CLICK: 'click',
+    PINCH_START: 'pinchstart',
+    PINCH_END: 'pinchend',
+    PINCH: 'pinch',
+    PINCH_IN: 'pinchin',
+    PINCH_OUT: 'pinchout',
+    ROTATION_LEFT: 'rotateleft',
+    ROTATION_RIGHT: 'rotateright',
+    ROTATION: 'rotate',
+    SWIPE_START: 'swipestart',
+    SWIPING: 'swiping',
+    SWIPE_END: 'swipeend',
+    SWIPE_LEFT: 'swipeleft',
+    SWIPE_RIGHT: 'swiperight',
+    SWIPE_UP: 'swipeup',
+    SWIPE_DOWN: 'swipedown',
+    SWIPE: 'swipe',
+    DRAG: 'drag',
+    DRAGSTART: 'dragstart',
+    DRAGEND: 'dragend',
+    HOLD: 'hold',
+    TAP: 'tap',
+    DOUBLE_TAP: 'doubletap'
 };
 
 /** 手势识别 */
@@ -782,195 +782,195 @@ var handlerOriginEvent = function(ev) {
 
 var _on = function() {
 
-	var evts, handler, evtMap, sel, args = arguments;
-	if (args.length < 2 || args > 4) {
-		return console.error("unexpected arguments!");
-	}
-	var els = utils.getType(args[0]) === 'string' ? document.querySelectorAll(args[0]) : args[0];
-	els = els.length ? Array.prototype.slice.call(els) : [els];
-	//事件绑定
-	if (args.length === 3 && utils.getType(args[1]) === 'string') {
-		evts = args[1].split(" ");
-		handler = args[2];
-		evts.forEach(function(evt) {
-			if (!utils.hasTouch) {
-				evt = utils.getPCevts(evt);
-			}
-			els.forEach(function(el) {
-				engine.bind(el, evt, handler);
-			});
-		});
-		return;
-	}
+    var evts, handler, evtMap, sel, args = arguments;
+    if (args.length < 2 || args > 4) {
+        return console.error("unexpected arguments!");
+    }
+    var els = utils.getType(args[0]) === 'string' ? document.querySelectorAll(args[0]) : args[0];
+    els = els.length ? Array.prototype.slice.call(els) : [els];
+    //事件绑定
+    if (args.length === 3 && utils.getType(args[1]) === 'string') {
+        evts = args[1].split(" ");
+        handler = args[2];
+        evts.forEach(function(evt) {
+            if (!utils.hasTouch) {
+                evt = utils.getPCevts(evt);
+            }
+            els.forEach(function(el) {
+                engine.bind(el, evt, handler);
+            });
+        });
+        return;
+    }
 
-	function evtMapDelegate(evt) {
-		if (!utils.hasTouch) {
-			evt = utils.getPCevts(evt);
-		}
-		els.forEach(function(el) {
-			engine.delegate(el, evt, sel, evtMap[evt]);
-		});
-	}
-	//mapEvent delegate
-	if (args.length === 3 && utils.getType(args[1]) === 'object') {
-		evtMap = args[1];
-		sel = args[2];
-		for (var evt1 in evtMap) {
-			evtMapDelegate(evt1);
-		}
-		return;
-	}
+    function evtMapDelegate(evt) {
+        if (!utils.hasTouch) {
+            evt = utils.getPCevts(evt);
+        }
+        els.forEach(function(el) {
+            engine.delegate(el, evt, sel, evtMap[evt]);
+        });
+    }
+    //mapEvent delegate
+    if (args.length === 3 && utils.getType(args[1]) === 'object') {
+        evtMap = args[1];
+        sel = args[2];
+        for (var evt1 in evtMap) {
+            evtMapDelegate(evt1);
+        }
+        return;
+    }
 
-	function evtMapBind(evt) {
-		if (!utils.hasTouch) {
-			evt = utils.getPCevts(evt);
-		}
-		els.forEach(function(el) {
-			engine.bind(el, evt, evtMap[evt]);
-		});
-	}
+    function evtMapBind(evt) {
+        if (!utils.hasTouch) {
+            evt = utils.getPCevts(evt);
+        }
+        els.forEach(function(el) {
+            engine.bind(el, evt, evtMap[evt]);
+        });
+    }
 
-	//mapEvent bind
-	if (args.length === 2 && utils.getType(args[1]) === 'object') {
-		evtMap = args[1];
-		for (var evt2 in evtMap) {
-			evtMapBind(evt2);
-		}
-		return;
-	}
+    //mapEvent bind
+    if (args.length === 2 && utils.getType(args[1]) === 'object') {
+        evtMap = args[1];
+        for (var evt2 in evtMap) {
+            evtMapBind(evt2);
+        }
+        return;
+    }
 
-	//兼容factor config
-	if (args.length === 4 && utils.getType(args[2]) === "object") {
-		evts = args[1].split(" ");
-		handler = args[3];
-		evts.forEach(function(evt) {
-			if (!utils.hasTouch) {
-				evt = utils.getPCevts(evt);
-			}
-			els.forEach(function(el) {
-				engine.bind(el, evt, handler);
-			});
-		});
-		return;
-	}
+    //兼容factor config
+    if (args.length === 4 && utils.getType(args[2]) === "object") {
+        evts = args[1].split(" ");
+        handler = args[3];
+        evts.forEach(function(evt) {
+            if (!utils.hasTouch) {
+                evt = utils.getPCevts(evt);
+            }
+            els.forEach(function(el) {
+                engine.bind(el, evt, handler);
+            });
+        });
+        return;
+    }
 
-	//事件代理
-	if (args.length === 4) {
-		var el = els[0];
-		evts = args[1].split(" ");
-		sel = args[2];
-		handler = args[3];
-		evts.forEach(function(evt) {
-			if (!utils.hasTouch) {
-				evt = utils.getPCevts(evt);
-			}
-			engine.delegate(el, evt, sel, handler);
-		});
-		return;
-	}
+    //事件代理
+    if (args.length === 4) {
+        var el = els[0];
+        evts = args[1].split(" ");
+        sel = args[2];
+        handler = args[3];
+        evts.forEach(function(evt) {
+            if (!utils.hasTouch) {
+                evt = utils.getPCevts(evt);
+            }
+            engine.delegate(el, evt, sel, handler);
+        });
+        return;
+    }
 };
 
 var _off = function() {
-	var evts, handler;
-	var args = arguments;
-	if (args.length < 1 || args.length > 4) {
-		return console.error("unexpected arguments!");
-	}
-	var els = utils.getType(args[0]) === 'string' ? document.querySelectorAll(args[0]) : args[0];
-	els = els.length ? Array.prototype.slice.call(els) : [els];
+    var evts, handler;
+    var args = arguments;
+    if (args.length < 1 || args.length > 4) {
+        return console.error("unexpected arguments!");
+    }
+    var els = utils.getType(args[0]) === 'string' ? document.querySelectorAll(args[0]) : args[0];
+    els = els.length ? Array.prototype.slice.call(els) : [els];
 
-	if (args.length === 1 || args.length === 2) {
-		els.forEach(function(el) {
-			evts = args[1] ? args[1].split(" ") : Object.keys(el.listeners);
-			if (evts.length) {
-				evts.forEach(function(evt) {
-					if (!utils.hasTouch) {
-						evt = utils.getPCevts(evt);
-					}
-					engine.unbind(el, evt);
-					engine.undelegate(el, evt);
-				});
-			}
-		});
-		return;
-	}
+    if (args.length === 1 || args.length === 2) {
+        els.forEach(function(el) {
+            evts = args[1] ? args[1].split(" ") : Object.keys(el.listeners);
+            if (evts.length) {
+                evts.forEach(function(evt) {
+                    if (!utils.hasTouch) {
+                        evt = utils.getPCevts(evt);
+                    }
+                    engine.unbind(el, evt);
+                    engine.undelegate(el, evt);
+                });
+            }
+        });
+        return;
+    }
 
-	if (args.length === 3 && utils.getType(args[2]) === 'function') {
-		handler = args[2];
-		els.forEach(function(el) {
-			evts = args[1].split(" ");
-			evts.forEach(function(evt) {
-				if (!utils.hasTouch) {
-					evt = utils.getPCevts(evt);
-				}
-				engine.unbind(el, evt, handler);
-			});
-		});
-		return;
-	}
+    if (args.length === 3 && utils.getType(args[2]) === 'function') {
+        handler = args[2];
+        els.forEach(function(el) {
+            evts = args[1].split(" ");
+            evts.forEach(function(evt) {
+                if (!utils.hasTouch) {
+                    evt = utils.getPCevts(evt);
+                }
+                engine.unbind(el, evt, handler);
+            });
+        });
+        return;
+    }
 
-	if (args.length === 3 && utils.getType(args[2]) === 'string') {
-		var sel = args[2];
-		els.forEach(function(el) {
-			evts = args[1].split(" ");
-			evts.forEach(function(evt) {
-				if (!utils.hasTouch) {
-					evt = utils.getPCevts(evt);
-				}
-				engine.undelegate(el, evt, sel);
-			});
-		});
-		return;
-	}
+    if (args.length === 3 && utils.getType(args[2]) === 'string') {
+        var sel = args[2];
+        els.forEach(function(el) {
+            evts = args[1].split(" ");
+            evts.forEach(function(evt) {
+                if (!utils.hasTouch) {
+                    evt = utils.getPCevts(evt);
+                }
+                engine.undelegate(el, evt, sel);
+            });
+        });
+        return;
+    }
 
-	if (args.length === 4) {
-		handler = args[3];
-		els.forEach(function(el) {
-			evts = args[1].split(" ");
-			evts.forEach(function(evt) {
-				if (!utils.hasTouch) {
-					evt = utils.getPCevts(evt);
-				}
-				engine.undelegate(el, evt, sel, handler);
-			});
-		});
-		return;
-	}
+    if (args.length === 4) {
+        handler = args[3];
+        els.forEach(function(el) {
+            evts = args[1].split(" ");
+            evts.forEach(function(evt) {
+                if (!utils.hasTouch) {
+                    evt = utils.getPCevts(evt);
+                }
+                engine.undelegate(el, evt, sel, handler);
+            });
+        });
+        return;
+    }
 };
 
 var _dispatch = function(el, evt, detail) {
-	var args = arguments;
-	if (!utils.hasTouch) {
-		evt = utils.getPCevts(evt);
-	}
-	var els = utils.getType(args[0]) === 'string' ? document.querySelectorAll(args[0]) : args[0];
-	els = els.length ? Array.prototype.call(els) : [els];
+    var args = arguments;
+    if (!utils.hasTouch) {
+        evt = utils.getPCevts(evt);
+    }
+    var els = utils.getType(args[0]) === 'string' ? document.querySelectorAll(args[0]) : args[0];
+    els = els.length ? Array.prototype.call(els) : [els];
 
-	els.forEach(function(el) {
-		engine.trigger(el, evt, detail);
-	});
+    els.forEach(function(el) {
+        engine.trigger(el, evt, detail);
+    });
 };
 
-	//init gesture
-	function init() {
+    //init gesture
+    function init() {
 
-		var mouseEvents = 'mouseup mousedown mousemove mouseout',
-			touchEvents = 'touchstart touchmove touchend touchcancel';
-		var bindingEvents = utils.hasTouch ? touchEvents : mouseEvents;
+        var mouseEvents = 'mouseup mousedown mousemove mouseout',
+            touchEvents = 'touchstart touchmove touchend touchcancel';
+        var bindingEvents = utils.hasTouch ? touchEvents : mouseEvents;
 
-		bindingEvents.split(" ").forEach(function(evt) {
-			document.addEventListener(evt, handlerOriginEvent, false);
-		});
-	}
+        bindingEvents.split(" ").forEach(function(evt) {
+            document.addEventListener(evt, handlerOriginEvent, false);
+        });
+    }
 
-	init();
+    init();
 
-	var exports = {};
+    var exports = {};
 
-	exports.on = exports.bind = exports.live = _on;
-	exports.off = exports.unbind = exports.die = _off;
-	exports.config = config;
-	exports.trigger = _dispatch;
+    exports.on = exports.bind = exports.live = _on;
+    exports.off = exports.unbind = exports.die = _off;
+    exports.config = config;
+    exports.trigger = _dispatch;
 
-	return exports;
+    return exports;
 }));
