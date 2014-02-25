@@ -54,7 +54,7 @@ utils.forceReflow = function() {
 };
 
 utils.simpleClone = function(obj) {
-    return JSON.parse(JSON.stringify(obj));
+	return Object.create(obj);
 };
 
 utils.getPosOfEvent = function(ev) {

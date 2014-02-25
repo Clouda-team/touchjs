@@ -1,0 +1,23 @@
+{
+  "name": "touchjs",
+  "version": "0.2.13",
+  "description": "clouda event and gesture lib touch.js",
+  "main": "touch.js",
+  "keywords": [
+    "touchjs",
+    "gesture",
+	"clouda"
+  ],
+  "authors": [
+    "huangxin"
+  ],
+  "license": "MIT",
+  "homepage": "http://code.baidu.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

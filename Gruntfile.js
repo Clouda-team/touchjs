@@ -4,25 +4,29 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             options: {
-                separator: '\n\n'
+                separator: '\n\n',
+				banner: '/*! <%= pkg.name %> v<%= pkg.version %>  <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-            dist: {
+            basic: {
                 src: ['src/intro.js', 'src/utils.js', 'src/event.js', 'src/config.js', 'src/gestures.js', 'src/api.js', 'src/outro.js'],
-                dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
-            }
+                dest: '<%= pkg.name.slice(0,-2) %>.js'
+            },
+			extras: {
+				src: ['src/intro.js', 'src/utils.js', 'src/event.js', 'src/config.js', 'src/gestures.js', 'src/api.js', 'src/outro.js'],
+                dest: 'dist/<%= pkg.name.slice(0,-2) %>-<%= pkg.version %>.js'
+			}
         },
-
         jshint: {
             files: ['Gruntfile.js', 'src/utils.js', 'src/event.js', 'src/config.js', 'src/gestures.js', 'src/api.js']
         },
-
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+                banner: '/*! <%= pkg.name %>.min v<%= pkg.version %>  <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             dist: {
                 files: {
-                    'dist/<%= pkg.name %>-<%= pkg.version %>.min.js': ['<%= concat.dist.dest %>']
+                    '<%= pkg.name.slice(0,-2) %>.min.js': ['<%= concat.basic.dest %>'],
+					'dist/<%= pkg.name.slice(0,-2) %>-<%= pkg.version %>.min.js': ['<%= concat.basic.dest %>'],
                 }
             }
         }
