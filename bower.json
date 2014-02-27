@@ -3,11 +3,7 @@
   "version": "0.2.13",
   "description": "clouda event and gesture lib touch.js",
   "main": "touch.js",
-  "keywords": [
-    "touchjs",
-    "gesture",
-	"clouda"
-  ],
+  "keywords": ["touchjs","gesture","clouda","touch","mobile","gestures"],
   "authors": [
     "huangxin"
   ],

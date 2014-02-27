@@ -1,0 +1,14 @@
+{
+  "name": "touchjs",
+  "repo": "brandnewera/touchjs",
+  "description": "baidu event and gesture library",
+  "version": "0.2.13",
+  "keywords": ["touchjs","gesture","clouda","touch","mobile","gestures"],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "touch.js",
+  "scripts": [
+    "touch.js"
+  ]
+}
