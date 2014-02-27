@@ -9,6 +9,7 @@
   "license": "MIT",
   "main": "touch.js",
   "scripts": [
-    "touch.js"
+    "touch.js",
+	"touch.min.js"
   ]
 }
