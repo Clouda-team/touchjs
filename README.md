@@ -25,6 +25,30 @@ touch.on('#rotation .target', 'touchstart', function(ev){ ev.startRotate();
 });
 ```
 
+### 包管理器
+
+`Touchjs`已发布至多种包管理器,可以通过以下包管理器来管理`Touchjs`:
+- ##### NPM
+  安装: `npm install touchjs`  
+  
+  更新: `npm update touchjs`  
+  
+  卸载: `npm uninstall touchjs`  
+    
+- ##### Bower
+  安装: `bower install touchjs`  
+  
+  更新: `bower update touchjs`  
+  
+  卸载: `bower uninstall touchjs` 
+  
+- ##### Component
+  安装: `conponent install brandnewera/touchjs`  
+  
+  更新: `conponent update brandnewera/touchjs`  
+  
+  卸载: `conponent uninstall brandnewera/touchjs` 
+
 ### 问题反馈
 
 如有疑问, 可以直接提issue, 我们会及时为您解答.
