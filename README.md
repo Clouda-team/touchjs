@@ -43,11 +43,7 @@ touch.on('#rotation .target', 'touchstart', function(ev){ ev.startRotate();
   卸载: `bower uninstall touchjs` 
   
 - ##### Component
-  安装: `conponent install brandnewera/touchjs`  
-  
-  更新: `conponent update brandnewera/touchjs`  
-  
-  卸载: `conponent uninstall brandnewera/touchjs` 
+  安装: `conponent install brandnewera/touchjs`
 
 ### 问题反馈
 
