@@ -27,5 +27,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/einsteinhx/touchjs/issues"
+  },
+  "spm": {
+    "main": "touch.js"
   }
 }
