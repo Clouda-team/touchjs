@@ -1,4 +1,4 @@
-Touchjs Getsture Library [![](http://spmjs.io/badge/touchjs)](http://spmjs.io/package/touchjs)
+Touchjs Getsture Library
 =======
 
 ### API
@@ -35,7 +35,7 @@ touch.on('#rotation .target', 'touchstart', function(ev){ ev.startRotate();
   
   卸载: `npm uninstall touchjs`  
 
-- ##### spm
+- ##### [spm](http://spmjs.io/badge/touchjs)](http://spmjs.io/package/touchjs)
   安装: `spm install touchjs`
 
 - ##### Bower
