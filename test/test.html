@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		h1 {
+			font-family : "Microsoft Yahei";
+			cursor : pointer;
+			text-align: center;
+			margin-top: 3em;
+			-webkit-user-select : none;
+		}
+	</style>
+	<script src="../sea-modules/seajs/seajs/2.2.1/sea.js"></script>
+</head>
+<body>
+	<h1 id="h1">Hold To Change Color</h1>
+	<script>
+		
+		function getRandomColor() {
+			var letters = '0123456789ABCDEF'.split('');
+			var color = '#';
+			for (var i = 0; i < 6; i++ ) {
+				color += letters[Math.floor(Math.random() * 16)];
+			}
+			return color;
+		}
+		
+		seajs.use("../touch", function(touch){
+			touch.on("#h1", 'hold', function(){
+				this.style.color = getRandomColor();
+			});
+		});
+
+	</script>
+</body>
+</html>

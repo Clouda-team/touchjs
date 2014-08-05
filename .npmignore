@@ -1,4 +1,5 @@
 node_modules
+sea-modules
 .*.swp
 ._*
 .DS_Store
