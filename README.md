@@ -35,9 +35,10 @@ touch.on('#rotation .target', 'touchstart', function(ev){ ev.startRotate();
   
   卸载: `npm uninstall touchjs`  
 
-- ##### [spm](http://spmjs.io/badge/touchjs)](http://spmjs.io/package/touchjs)
+- ##### spm
   安装: `spm install touchjs`
-
+  地址: http://spmjs.io/badge/touchjs)](http://spmjs.io/package/touchjs
+  
 - ##### Bower
   安装: `bower install touchjs`  
   
