@@ -37,7 +37,7 @@ touch.on('#rotation .target', 'touchstart', function(ev){ ev.startRotate();
 
 - ##### spm
   安装: `spm install touchjs`  
-  地址: http://spmjs.io/badge/touchjs
+  http://spmjs.io/badge/touchjs : http://spmjs.io/package/touchjs
   
 - ##### Bower
   安装: `bower install touchjs`  
